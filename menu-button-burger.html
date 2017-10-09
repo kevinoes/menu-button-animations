@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu button - burger</title>
+
+  <style>
+    .menu-button {
+      box-sizing: border-box;
+      position: relative;
+      width: 44px;
+      height: 44px;
+      margin: 0 auto;
+      border-radius: 40px;
+      background-color: #ff3892;
+      cursor: pointer;
+      transition: background 0.3s ease-in-out;
+    }
+    .menu-button:hover {
+      background-color: #de367d;
+    }
+    .menu-button > div {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 22px;
+      height: 22px;
+      margin: auto;
+      transform: translate(-50%, -50%);
+      transition: all 0.2s ease-out 0.4s;
+    }
+    .menu-button span {
+      display: block;
+      position: absolute;
+      left: 50%;
+      height: 2px;
+      width: 100%;
+      border-radius: 100px;
+      background-color: #fff;
+      transition: all 0.3s ease-in-out;
+    }
+    .menu-button span:nth-child(1) {
+      top: 0;
+      transform: translate(-50%, 100%);
+    }
+    .menu-button span:nth-child(2),
+    .menu-button span:nth-child(3) {
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .menu-button span:nth-child(3) {
+      width: 2px;
+      opacity: 0;
+    }
+    .menu-button span:nth-child(4) {
+      top: 100%;
+      transform: translate(-50%, -200%);
+    }
+    .menu-button--active > div {
+      transform: translate(-50%, -50%) rotate(-135deg);
+    }
+    .menu-button--active span:nth-child(1),
+    .menu-button--active span:nth-child(4) {
+      top: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+    }
+    .menu-button--active span:nth-child(2) {
+      width: 100%;
+      height: 2px;
+      transform: translate(-50%, -50%);
+    }
+    .menu-button--active span:nth-child(3) {
+      width: 2px;
+      height: 100%;
+      transform: translate(-50%, -50%);
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="menu-button">
+    <div><span></span><span></span><span></span><span></span></div>
+  </nav>
+
+  <script>
+    document.querySelector('.menu-button').addEventListener('click', function () {
+      this.classList.toggle('menu-button--active');
+    });
+  </script>
+</body>
+</html>
